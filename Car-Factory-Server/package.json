@@ -1,0 +1,23 @@
+{
+  "name": "car-factory",
+  "version": "0.0.1",
+  "description": "Car Factory",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "car",
+    "factory"
+  ],
+  "author": "Sekul Kamberov",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "cors": "2.8.3",
+    "express": "4.15.3",
+    "jsonwebtoken": "7.4.1",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "validator": "7.2.0"
+  }
+}
