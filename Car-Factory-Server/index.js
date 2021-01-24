@@ -20,7 +20,7 @@ passport.use('local-login', localLoginStrategy)
 
 // routes
 app.use('/auth', authRoutes)
-
+app.use('/car', )
 app.listen(port, () => {
   console.log(`Server running on port ${port}...`)
 })
