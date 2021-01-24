@@ -26,9 +26,31 @@ module.exports = {
         }
 
         carData[id] = newCar
-    }
+    },
     all: (page, search) => {
-        //todo: from my gym proj
+        const pageSize = 10
+
+        let startIndex = (page - 1) * pageSize
+        let endIndex = startIndex + pageSize
+        
+        return Object
+        .keys(carData)
+        .map(key => carData[key])
+        .filter(car => {
+            if(!search) {
+                return true
+            }
+
+            const carMake = car.make.toLowerCase
+            const carModel = car.model.toLowerCase()
+            const searchTerm = search.toLowerCase()
+
+            return carModel.indexOf(searchTerm) >= 0 ||
+            carMake.indexOf(searchTerm) >= 0
+        })
+        .sort((a, b) => b.id - a.id)
+        .slice(starIndex, endIndex)
+
     },
     findById: (id) => {
         return carData[id]
