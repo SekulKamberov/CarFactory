@@ -1,14 +1,14 @@
 const usersById = {}
 const usersByEmail = {}
 
-module.exports ={
+module.exports = {
     total: () => Object.keys(usersById).length,
     save: (user) => {
       const id = Object.keys(usersById).length + 1
       user.id = id
       user.roles = [];
 
-      if(Object.keys(userById).length === 0) {
+      if(Object.keys(usersById).length === 0) {
         user.roles.push('Admin');
       }
 
@@ -16,9 +16,9 @@ module.exports ={
       usersByEmail[user.email] = user
     },
     findByEmail: (email) => {
-        return userByEmail[email]
+        return usersByEmail[email]
     },
     findById: (id) => {
-        return userById[id]
+        return usersById[id]
     }
 }

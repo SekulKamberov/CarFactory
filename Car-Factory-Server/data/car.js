@@ -4,7 +4,7 @@ let currentId = 0
 module.exports = {
     total: () => Object.keys(carData).length,
     save: (car) => {
-      const id = ++currentId.id
+      const id = ++currentId
       car.id = id
 
       let newCar = {
@@ -21,7 +21,7 @@ module.exports = {
         reviews: []
         }
 
-        if(car.material){
+        if (car.material) {
             car.material = car.material
         }
 
@@ -37,11 +37,11 @@ module.exports = {
         .keys(carData)
         .map(key => carData[key])
         .filter(car => {
-            if(!search) {
+            if (!search) {
                 return true
             }
 
-            const carMake = car.make.toLowerCase
+            const carMake = car.make.toLowerCase()
             const carModel = car.model.toLowerCase()
             const searchTerm = search.toLowerCase()
 
@@ -49,8 +49,7 @@ module.exports = {
             carMake.indexOf(searchTerm) >= 0
         })
         .sort((a, b) => b.id - a.id)
-        .slice(starIndex, endIndex)
-
+        .slice(startIndex, endIndex)
     },
     findById: (id) => {
         return carData[id]
@@ -74,7 +73,7 @@ module.exports = {
     like: (id, user) => {
         const likes = carData[id].likes
 
-        if(likes.indexOf(user) >= 0) {
+        if (likes.indexOf(user) >= 0) {
             return false
         }
 

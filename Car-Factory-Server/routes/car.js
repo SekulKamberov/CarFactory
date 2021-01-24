@@ -1,6 +1,6 @@
 const express = require('express')
 const authCheck = require('../middleware/auth-check')
-const carData = require('..data/car')
+const carData = require('../data/car')
 
 const router = new express.Router()
 
@@ -13,33 +13,33 @@ function validateCarForm (payload) {
     payload.price = parseInt(payload.price)
 
     if(!payload || typeof payload.make !== 'string' || payload.make.length < 3){
-        isFormValid - false
-        errors.make = 'Make must be more then 3 symbols'
+        isFormValid = false
+        errors.make = 'Make must be more than 3 symbols'
     }
 
     if(!payload || typeof payload.model !== 'string' || payload.model.length < 3){
-        isFormValid - false
-        errors.model = 'Model must be more then 3 symbols'
+        isFormValid = false
+        errors.model = 'Model must be more than 3 symbols'
     }
 
     if(!payload || !payload.year || payload.year < 1950 || payload.year > 2070 ){
-        isFormValid - false
+        isFormValid = false
         errors.year = 'Year must be between 1950 and 2070'
     }
 
     if(!payload || payload.description !== 'string' || payload.description.length < 10 ){
-        isFormValid - false
-        errors.description = 'Description must be more then 10 symbols'
+        isFormValid = false
+        errors.description = 'Description must be more than 10 symbols'
     }
 
     if(!payload || !payload.price || payload.price < 0 ){
-        isFormValid - false
+        isFormValid = false
         errors.price = 'Prise must be a positive number'
     }
 
     if(!payload || typeof payload.image !== 'string' || payload.image.length === 0 ){
-        isFormValid - false
-        errors.image = 'Prise must be a positive number'
+        isFormValid = false
+        errors.image = 'Image url is required'
     }
 
     if (!isFormValid) {
@@ -58,7 +58,7 @@ router.post('/create', authCheck, (req, res) => {
     car.createdBy = req.user.email
 
     const validationResult = validateCarForm(car)
-    if(!validationResult.success){
+    if(!validationResult.success) {
         return res.status(400).json({
             success: false,
             message: validationResult.message,
@@ -87,7 +87,7 @@ router.get('/details/:id', authCheck, (req, res) => {
     const id = req.params.id
     const car = carData.findById(id)
 
-    if(!car) {
+    if (!car) {
         return res.status(401).json({
             success: false,
             message: 'Entry does not exists'
@@ -104,7 +104,7 @@ router.get('/details/:id', authCheck, (req, res) => {
         image: car.image
     }
 
-    if(car.material) {
+    if (car.material) {
         response.material = car.material
     }
 
@@ -145,7 +145,7 @@ router.put('/edit/:id', authCheck, (req, res) => {
     const car = req.body;
 
     if (!car || !req.user.roles.includes('Admin')) {
-        return res.status(400).json({
+        return res.status(404).json({
             success: false,
             message: 'Car does not exists'
         })
@@ -156,7 +156,7 @@ router.put('/edit/:id', authCheck, (req, res) => {
         return res.status(400).json({
             success: false,
             message: validationResult.message,
-            error: validationResult.errors
+            errors: validationResult.errors
         })
     }
 
@@ -173,7 +173,7 @@ router.get('/:id', authCheck, (req, res) => {
     const id = req.params.id
     const car = carData.findById(id)
 
-    if(!car) {
+    if (!car) {
         return res.status(404).json({
             success: false,
             message: 'Entry does not exist'
@@ -191,7 +191,7 @@ router.get('/:id', authCheck, (req, res) => {
     }
 
     if (car.material) {
-        response.material = car.meterial
+        response.material = car.material
     }
 
     res.status(200).json(response)
