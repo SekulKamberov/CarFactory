@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  username: string
   constructor() { }
 
   ngOnInit(): void {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    if (currentUser) {
+      this.username = JSON.parse(localStorage.getItem('currentUser')).username
+    }
   }
 
 }

@@ -8,12 +8,13 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component'
+import { AuthModul } from './authentication/auth.module';
+import { HomeComponent } from './home/home.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent 
   ],
   imports: [
     BrowserModule,
@@ -21,9 +22,11 @@ import { HomeComponent } from './home/home.component'
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AuthModul
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
