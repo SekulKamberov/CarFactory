@@ -13,7 +13,9 @@ import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModul } from './authentication/auth.module';
 import { HomeComponent } from './home/home.component';
-import { NavigationComponent } from './navigation/navigation.component'; 
+import { NavigationComponent } from './navigation/navigation.component';  
+
+import { JWTInterceptor, ErrorInterceptor } from './interceptors'
 
 @NgModule({
   declarations: [
@@ -32,6 +34,16 @@ import { NavigationComponent } from './navigation/navigation.component';
     AuthModul
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
