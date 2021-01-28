@@ -49,7 +49,7 @@ function validateCarForm (payload) {
         errors.year = 'Year must be between 2021 and 2070'
     }
 
-    if(!payload || payload.description !== 'string' || payload.description.length < 10 ){
+    if(!payload || typeof payload.description !== 'string' || payload.description.length < 10 ){
         isFormValid = false
         errors.description = 'Description must be more than 10 symbols'
     }
@@ -121,9 +121,9 @@ router.get('/details/:id', authCheck, (req, res) => {
         make: car.make,
         model: car.model,
         engine: car.engine,
-        hp = car.hp,
-        doors = car.doors,
-        gearbox = car.gearbox,
+        hp: car.hp,
+        doors: car.doors,
+        gearbox: car.gearbox,
         year: car.year,
         description: car.description,
         price: car.price,
@@ -212,9 +212,9 @@ router.get('/:id', authCheck, (req, res) => {
         make: car.make,
         model: car.model,
         engine: car.engine,
-        hp = car.hp,
-        doors = car.doors,
-        gearbox = car.gearbox,
+        hp: car.hp,
+        doors: car.doors,
+        gearbox: car.gearbox,
         year: car.year,
         description: car.description,
         price: car.price,
