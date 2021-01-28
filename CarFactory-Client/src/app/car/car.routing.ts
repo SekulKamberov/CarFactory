@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CreateCarComponent } from './create-car/create-car.component';
+
 const carRoutes: Routes = [
-    /* TO DO ALL ROUTES
-    { path: 'create', component: }
-    { path: 'create', component:  }
+      
+    { path: 'create', component: CreateCarComponent}
+   /* { path: 'create', component:  }
     { path: 'create', component:  }
     { path: 'create', component:  }
     { path: 'create', component:  }
