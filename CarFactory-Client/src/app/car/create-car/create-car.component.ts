@@ -1,12 +1,11 @@
-import { Component} from '@angular/core';
-import { CreateCarModel } from '../models/create-car.model';
-import { NgForm } from '@angular/forms';
-import { CarService } from '../car.service';
+import { Component} from '@angular/core'
+import { CreateCarModel } from '../models/create-car.model'
+import { NgForm } from '@angular/forms'
+import { CarService } from '../car.service'
 
 @Component({
   selector: 'app-create-car',
-  templateUrl: './create-car.component.html',
-  styleUrls: ['./create-car.component.css']
+  templateUrl: './create-car.component.html' 
 })
 export class CreateCarComponent {
 public bindingModel: CreateCarModel

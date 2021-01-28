@@ -16,21 +16,13 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';  
 
 import { JWTInterceptor, ErrorInterceptor } from './interceptors'
-import { CarModule } from './car/car.module';
-import { CustomMin } from './custom-min.validator.directive';
-import { CustomMax } from './custom-max.validator.directive';
-import { CustomMinValidatorDirective } from './directives/custom-min-validator.directive';
-import { CustomMaxValidatorDirective } from './directives/custom-max-validator.directive';  
+import { CarModule } from './car/car.module'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavigationComponent,
-    CustomMin.ValidatorDirective,
-    CustomMax.ValidatorDirective,
-    CustomMinValidatorDirective,
-    CustomMaxValidatorDirective 
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
