@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';  
 
 import { JWTInterceptor, ErrorInterceptor } from './interceptors'
+import { CarModule } from './car/car.module';  
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { JWTInterceptor, ErrorInterceptor } from './interceptors'
     BrowserAnimationsModule,
     NgbModule, 
     ToastrModule.forRoot(),
-    AuthModul
+    AuthModul,
+    CarModule
   ],
   providers: [
     {
