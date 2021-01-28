@@ -9,6 +9,8 @@ function validateCarForm (payload) {
     let isFormValid = true
     let message = ''
 
+    payload.hp = parseInt(payload.hp)
+    payload.doors = parseInt(payload.doors)
     payload.year = parseInt(payload.year)
     payload.price = parseInt(payload.price)
 
@@ -22,9 +24,29 @@ function validateCarForm (payload) {
         errors.model = 'Model must be more than 3 symbols'
     }
 
-    if(!payload || !payload.year || payload.year < 1950 || payload.year > 2070 ){
+    if(!payload || typeof payload.engine !== 'string' || payload.engine.length < 3){
         isFormValid = false
-        errors.year = 'Year must be between 1950 and 2070'
+        errors.engine = 'Engine must be more than 3 symbols'
+    }
+
+    if(!payload || !payload.hp || payload.hp < 0 ){
+        isFormValid = false
+        errors.hp = 'Horsepower must be a positive number'
+    }
+
+    if(!payload || !payload.doors || payload.doors < 3 ){
+        isFormValid = false
+        errors.doors = 'Doors must be more than 3'
+    }
+
+    if(!payload || typeof payload.gearbox !== 'string' || payload.gearbox.length < 3){
+        isFormValid = false
+        errors.gearbox = 'Gearbox must be more than 3 symbols'
+    }
+
+    if(!payload || !payload.year || payload.year < 2021 || payload.year > 2070 ){
+        isFormValid = false
+        errors.year = 'Year must be between 2021 and 2070'
     }
 
     if(!payload || payload.description !== 'string' || payload.description.length < 10 ){
@@ -98,14 +120,19 @@ router.get('/details/:id', authCheck, (req, res) => {
         id,
         make: car.make,
         model: car.model,
+        engine: car.engine,
+        hp = car.hp,
+        doors = car.doors,
+        gearbox = car.gearbox,
         year: car.year,
         description: car.description,
         price: car.price,
-        image: car.image
+        image: car.image,
     }
 
-    if (car.material) {
-        response.material = car.material
+
+    if (car.color) {
+        response.color = car.color
     }
 
     res.status(200).json(response)
@@ -184,14 +211,18 @@ router.get('/:id', authCheck, (req, res) => {
         id,
         make: car.make,
         model: car.model,
+        engine: car.engine,
+        hp = car.hp,
+        doors = car.doors,
+        gearbox = car.gearbox,
         year: car.year,
         description: car.description,
         price: car.price,
-        image: car.image
+        image: car.image,
     }
 
-    if (car.material) {
-        response.material = car.material
+    if (car.color) {
+        response.color = car.color
     }
 
     res.status(200).json(response)
