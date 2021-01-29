@@ -9,6 +9,8 @@ import { CreateCarComponent } from './create-car/create-car.component';
 import { CustomMinValidatorDirective } from '../directives/custom-min-validator.directive';
 import { CustomMaxValidatorDirective } from '../directives/custom-max-validator.directive';
 import { AllCarsComponent } from './all-cars/all-cars.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
+import { EditCarComponent } from './edit-car/edit-car.component';
 
 
 
@@ -17,7 +19,9 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
     AllCarsComponent,
     CreateCarComponent,
     CustomMinValidatorDirective,
-    CustomMaxValidatorDirective
+    CustomMaxValidatorDirective,
+    CarDetailsComponent,
+    EditCarComponent
   ],
   imports: [
     CommonModule,

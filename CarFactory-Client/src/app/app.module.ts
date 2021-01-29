@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing'
 import { AppComponent } from './app.component' 
 
 import { FormsModule } from '@angular/forms'
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http' 
 
 import { ToastrModule } from 'ngx-toastr'
 
@@ -30,7 +29,6 @@ import { CarModule } from './car/car.module';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbModule, 
     ToastrModule.forRoot(),
     AuthModul,
     CarModule

@@ -1,12 +1,11 @@
 <div class="container">
     <div class="row space-top">
         <div class="col-md-12">
-        <h1>Create a new car</h1>
-        <i>please fill in every field</i>
+        <h1>Edit car</h1> 
         </div>
     </div>
 
-    <form  #carForm="ngForm" (ngSubmit)="create(carForm)">
+    <form  #carForm="ngForm" (ngSubmit)="edit(carForm)">
         <div class="row space-top">
 
             <div class="col-md-4">
@@ -14,21 +13,19 @@
                 <div class="form-group has-success">
                     <label class="form-control-label" for="new-make">Make</label>
                     
-                    <input class="form-control is-valid" id="new-make" type="text" name="make"    
-                        [(ngModel)]="bindingModel.make" 
-                        #make="ngModel" 
-                        required 
-                        minlength="4">
+                    <input class="form-control" id="new-make" type="text" name="make" 
+                    [(ngModel)]="bindingModel.make" 
+                    #make="ngModel" required [customMin]="3" [customMax]="10">
     
                     <div [hidden]="make.valid || make.pristine" class="form-control-feedback">
-                        Make must be at least 4 symbols long
+                        Make must be minimum 3 and max 10 symbols long
                     </div> 
                 </div>
 
                 <div class="form-group has-success">
                     <label class="form-control-label" for="new-model">Model</label>
                     
-                    <input class="form-control is-valid" id="new-model" type="text" name="model"    
+                    <input class="form-control" id="new-model" type="text" name="model"    
                         [(ngModel)]="bindingModel.model" 
                         #model="ngModel" 
                         required 
@@ -42,7 +39,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-engine">Engine</label>
                     
-                    <input class="form-control is-valid" id="new-engine" type="text" name="engine"    
+                    <input class="form-control" id="new-engine" type="text" name="engine"    
                         [(ngModel)]="bindingModel.engine" 
                         #engine="ngModel" 
                         required 
@@ -56,7 +53,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-hp">HP</label>
                     
-                    <input class="form-control is-valid" id="new-hp" type="number" name="hp"    
+                    <input class="form-control" id="new-hp" type="number" name="hp"    
                         [(ngModel)]="bindingModel.hp" 
                         #hp="ngModel" 
                         required
@@ -71,7 +68,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-doors">Doors</label>
                     
-                    <input class="form-control is-valid" id="new-doors" type="number" name="doors"    
+                    <input class="form-control" id="new-doors" type="number" name="doors"    
                         [(ngModel)]="bindingModel.doors" 
                         #doors="ngModel" 
                         required
@@ -86,7 +83,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-gearbox">Gearbox</label>
                     
-                    <input class="form-control is-valid" id="new-gearbox" type="text" name="gearbox"    
+                    <input class="form-control" id="new-gearbox" type="text" name="gearbox"    
                         [(ngModel)]="bindingModel.gearbox" 
                         #gearbox="ngModel" 
                         required 
@@ -100,12 +97,12 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-year">Year</label>
                     
-                    <input class="form-control is-valid" id="new-year" type="number" name="year"    
+                    <input class="form-control" id="new-year" type="number" name="year"    
                         [(ngModel)]="bindingModel.year" 
                         #year="ngModel" 
                         required
-                        [customMin]="2020"
-                        [customMax]="2071">
+                        [customMin]="3"
+                        [customMax]="5">
     
                     <div [hidden]="year.valid || year.pristine" class="form-control-feedback">
                         Year must be between 2021 and 2070
@@ -115,7 +112,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-description">Description</label>
                     
-                    <input class="form-control is-valid" id="new-description" type="text" name="description"    
+                    <input class="form-control" id="new-description" type="text" name="description"    
                         [(ngModel)]="bindingModel.description" 
                         #description="ngModel" 
                         required 
@@ -129,7 +126,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-year">Price</label>
                     
-                    <input class="form-control is-valid" id="new-price" type="number" name="price"    
+                    <input class="form-control" id="new-price" type="number" name="price"    
                         [(ngModel)]="bindingModel.price" 
                         #price="ngModel" 
                         required
@@ -143,7 +140,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="new-image">Image url</label>
                     
-                    <input class="form-control is-valid" id="new-image" type="text" name="image"    
+                    <input class="form-control" id="new-image" type="text" name="image"    
                         [(ngModel)]="bindingModel.image" 
                         #image="ngModel" 
                         required 
@@ -153,7 +150,7 @@
                         Image url is required
                     </div> 
                 </div>
-                <input type="submit" class="btn btn-primary" value="Create" [disabled]="!carForm.valid" />
+                <input type="submit" class="btn btn-primary" value="Edit" [disabled]="!carForm.valid" />
 
             </div>
 

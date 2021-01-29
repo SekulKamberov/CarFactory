@@ -5,6 +5,10 @@ import { CreateCarModel } from './models/create-car.model'
 
 const createUrl = 'http://localhost:5000/car/create'
 const allUrl = 'http://localhost:5000/car/all'
+const detailsUrl = 'http://localhost:5000/car/details/'
+const editCarUrl = 'http://localhost:5000/car/edit/'
+const carByIdUrl = 'http://localhost:5000/car/'
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +25,15 @@ export class CarService {
     return this.http.get<CarModel[]>(allUrl)
   }
 
+  getCarDetails(id: string) {
+    return this.http.get<CarModel>(detailsUrl + id)
+  }
 
+  getCarById(id: string) {
+    return this.http.get<CarModel>(carByIdUrl + id)
+  }
 
+  editCar(id: string, model: CarModel) {
+    return this.http.put(editCarUrl + id, model)
+  }
 }

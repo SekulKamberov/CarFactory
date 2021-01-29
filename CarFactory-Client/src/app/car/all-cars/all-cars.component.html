@@ -9,12 +9,12 @@
     <div *ngIf='cars$ | async as cars'>
         <div *ngIf="cars.length > 0; else notFound" class="row space-top">
             <div *ngFor="let car of cars" class="col-md-4">
-                <div class="card text-white bg-primary">
-                    <div class="card-body">
-                        <blockquote class="card-blockquote">
-                            <img src="{{car.image}}" width="300"/>
-                            <p>{{car.description}}</p>
-                        </blockquote>
+                <div >
+                    <img src="{{car.image}}" width="300" />
+                    <p>{{car.description}}</p>
+                    <div class="pull-right">
+                        <a routerLink="/car/details/{{car.id}}" class="btn btn-outline-primary">Details</a>
+                        <a routerLink="/car/edit/{{car.id}}" class="btn btn-outline-success">Edit</a>
                     </div>
                 </div>
             </div>
