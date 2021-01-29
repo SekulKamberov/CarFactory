@@ -11,10 +11,10 @@
 
             <div class="col-md-4">
 
-                <div class="form-group">
+                <div class="form-group has-success">
                     <label class="form-control-label" for="new-make">Make</label>
                     
-                    <input class="form-control" id="new-make" type="text" name="make"    
+                    <input class="form-control is-valid" id="new-make" type="text" name="make"    
                         [(ngModel)]="bindingModel.make" 
                         #make="ngModel" 
                         required 
@@ -154,6 +154,7 @@
                     </div> 
                 </div>
                 <input type="submit" class="btn btn-primary" value="Create" [disabled]="!carForm.valid" />
+
             </div>
 
         </div>

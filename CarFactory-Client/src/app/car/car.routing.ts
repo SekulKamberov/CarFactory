@@ -1,20 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 
-import { CreateCarComponent } from './create-car/create-car.component';
+import { AllCarsComponent } from './all-cars/all-cars.component'
+import { CreateCarComponent } from './create-car/create-car.component'
 
-const carRoutes: Routes = [
-      
+
+const carRoutes: Routes = [   
+    { path: 'all', component: AllCarsComponent},
     { path: 'create', component: CreateCarComponent}
-   /* { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  }
-    { path: 'create', component:  } */
 ]
 
 @NgModule({

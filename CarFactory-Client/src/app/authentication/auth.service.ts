@@ -46,7 +46,7 @@ export class AuthService {
         }
 
         isAuthenticated () { 
-            return this.currentAuthtoken = localStorage.getItem('currentUser');
+            return this.currentAuthtoken === localStorage.getItem('authtoken');
         }
 
         isAdmin () {

@@ -1,1 +1,27 @@
-<p>all-cars works!</p>
+<div class="container">
+    <div class="row space-top">
+        <div class="col-md-12">
+            <h1>Cars</h1>
+            <p>Cars details</p> 
+        </div>
+    </div>
+
+    <div *ngIf='cars$ | async as cars'>
+        <div *ngIf="cars.length > 0; else notFound" class="row space-top">
+            <div *ngFor="let car of cars" class="col-md-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <blockquote class="card-blockquote">
+                            <img src="{{car.image}}" width="300"/>
+                            <p>{{car.description}}</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #notFound>
+            <span>There are no existing cars</span>
+        </ng-template>
+    </div>
+
+</div>

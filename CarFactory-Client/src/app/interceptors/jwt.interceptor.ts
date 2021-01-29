@@ -54,7 +54,7 @@ export class JWTInterceptor implements HttpInterceptor {
 
                 if (res instanceof HttpResponse && res.body.success && req.url.endsWith('/car/create')) {
                     this.toastr.success(res.body.message)
-                    //todo this.router.navigate(['/car/all'])
+                    this.router.navigate(['car/all'])
                 }
             }))
     }
@@ -65,7 +65,7 @@ export class JWTInterceptor implements HttpInterceptor {
             this.authService.authtoken = authtoken
             localStorage.setItem('authtoken', authtoken)
             this.toastr.success(data.message)
-            //todo this.router.navigate(['/car/all'])
+            this.router.navigate(['car/all'])
         } else {
             this.toastr.error('Invalid token', 'Warning')
         }

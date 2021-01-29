@@ -14,10 +14,10 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
 
 @NgModule({
   declarations: [
+    AllCarsComponent,
     CreateCarComponent,
     CustomMinValidatorDirective,
-    CustomMaxValidatorDirective,
-    AllCarsComponent
+    CustomMaxValidatorDirective
   ],
   imports: [
     CommonModule,
