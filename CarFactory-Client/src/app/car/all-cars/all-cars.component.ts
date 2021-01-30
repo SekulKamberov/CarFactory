@@ -25,4 +25,13 @@ export class AllCarsComponent implements OnInit {
     this.cars$ = this.carService.getAllCars()
   }
 
+  deleteItem(id: string) {
+    this.carService
+      .deleteCar(id)
+      .subscribe(() => {
+        this.toastr.success('the car was deleted')
+        this.cars$ = this.carService.getAllCars()
+      })
+  }
+ 
 }

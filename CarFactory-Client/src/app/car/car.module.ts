@@ -1,27 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 
-import { CarRoutingModule } from './car.routing';
-import { CarService } from './car.service';
-import { CreateCarComponent } from './create-car/create-car.component';
+import { CarRoutingModule } from './car.routing'
+import { CarService } from './car.service'
+import { CreateCarComponent } from './create-car/create-car.component'
 
-import { CustomMinValidatorDirective } from '../directives/custom-min-validator.directive';
-import { CustomMaxValidatorDirective } from '../directives/custom-max-validator.directive';
-import { AllCarsComponent } from './all-cars/all-cars.component';
-import { CarDetailsComponent } from './car-details/car-details.component';
-import { EditCarComponent } from './edit-car/edit-car.component';
+import { CustomMinValidatorDirective } from '../directives/custom-min-validator.directive'
+import { CustomMaxValidatorDirective } from '../directives/custom-max-validator.directive'
+import { carComponents} from '.'
 
 
 
 @NgModule({
   declarations: [
-    AllCarsComponent,
+    ...carComponents,
     CreateCarComponent,
     CustomMinValidatorDirective,
-    CustomMaxValidatorDirective,
-    CarDetailsComponent,
-    EditCarComponent
+    CustomMaxValidatorDirective, 
   ],
   imports: [
     CommonModule,
