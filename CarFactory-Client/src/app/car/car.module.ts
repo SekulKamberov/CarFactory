@@ -9,7 +9,7 @@ import { CreateCarComponent } from './create-car/create-car.component'
 import { CustomMinValidatorDirective } from '../directives/custom-min-validator.directive'
 import { CustomMaxValidatorDirective } from '../directives/custom-max-validator.directive'
 import { carComponents} from '.'
-
+import { NgxPaginationModule} from 'ngx-pagination'
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { carComponents} from '.'
   imports: [
     CommonModule,
     FormsModule,
-    CarRoutingModule
+    CarRoutingModule,
+    NgxPaginationModule
   ],
   providers: [
     CarService

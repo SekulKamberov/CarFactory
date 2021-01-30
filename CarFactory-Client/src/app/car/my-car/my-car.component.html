@@ -7,7 +7,11 @@
 
     <div *ngIf='cars$ | async as cars'>
         <div *ngIf="cars.length > 0; else notFound" class="row space-top">
-            <div *ngFor="let car of cars" class="col-md-4">
+            <div *ngFor="let car of cars  | paginate: {
+                id: 'allCars', 
+                itemsPerPage: pageSize, 
+                currentPage: currentPage 
+              }" class="col-md-4">
                 <div class="mb-4">
                     <img src="{{car.image}}" class="img-fluid img-thumbnail" />
                     <p>{{car.description}}</p>
@@ -22,6 +26,15 @@
         <ng-template #notFound>
             <span>You dont have any cars</span>
         </ng-template>
-    </div>
-
+    </div><br><br><br><br>
+ 
+    <pagination-controls
+        id="allCars"
+        (pageChange)="changePage($event)"  
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You are on page">
+    </pagination-controls>
 </div>

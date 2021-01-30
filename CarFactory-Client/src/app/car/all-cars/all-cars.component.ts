@@ -14,7 +14,12 @@ import { ToastrService } from '../../../../node_modules/ngx-toastr';
 })
 export class AllCarsComponent implements OnInit {
   cars$: Observable<CarModel[]>
-  
+  pageSize = 3
+  maxSize = 9
+  directionLinks="true"
+  autoHide="true"
+  currentPage = 1
+
   constructor(
     private carService: CarService,
     private authService: AuthService,
@@ -32,6 +37,10 @@ export class AllCarsComponent implements OnInit {
         this.toastr.success('the car was deleted')
         this.cars$ = this.carService.getAllCars()
       })
+  }
+
+  changePage(page) {
+    this.currentPage = page
   }
  
 }

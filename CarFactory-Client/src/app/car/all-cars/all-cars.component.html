@@ -8,8 +8,12 @@
 
     <div *ngIf='cars$ | async as cars'>
         <div *ngIf="cars.length > 0; else notFound" class="row space-top">
-            <div *ngFor="let car of cars" class="col-md-4">
-                <div class="mb-4">
+            <div *ngFor="let car of cars | paginate: {
+                id: 'allCars', 
+                itemsPerPage: pageSize, 
+                currentPage: currentPage 
+              }" class="col-md-4">
+                <blockquote class="card-blockquote">
                     <img src="{{car.image}}" class="img-fluid img-thumbnail" />
                     <p>{{car.description}}</p>
                     <div class="pull-right">
@@ -17,12 +21,21 @@
                         <a routerLink="/car/edit/{{car.id}}" class="btn btn-outline-success">Edit</a>
                         <a (click)="deleteItem(car.id)" class="btn btn-outline-danger">Delete</a>                 
                     </div>
-                </div>
+                </blockquote>
             </div>
         </div>
         <ng-template #notFound>
             <span>There are no existing cars</span>
         </ng-template>
-    </div>
-
+    </div><br><br><br><br>
+ 
+    <pagination-controls
+        id="allCars"
+        (pageChange)="changePage($event)"  
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You are on page">
+    </pagination-controls>
 </div>

@@ -10,6 +10,11 @@ import { CarService } from '../car.service'
 })
 export class MyCarComponent implements OnInit {
   cars$: Observable<CarModel[]>
+  pageSize = 3
+  maxSize = 9
+  directionLinks="true"
+  autoHide="true"
+  currentPage = 1
 
   constructor(private carService: CarService) { }
 
@@ -22,6 +27,10 @@ export class MyCarComponent implements OnInit {
       .subscribe(() => {
         this.cars$ = this.carService.myCars()
       })
+  }
+
+  changePage(page) {
+    this.currentPage = page
   }
 
 }
