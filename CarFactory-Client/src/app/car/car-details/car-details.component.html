@@ -4,26 +4,22 @@
             <h1>Car details</h1>
         </div>
     </div>
-
-    <div class="row space-top">
-        <div class="col-md-5">
-            <div class="card-body">
-                <blockquote class="card-blockquote">
-                    <img src="{{car.image}}" width="500"/>
-                </blockquote>
-            </div>
+    <div class="form-group row">
+        <div class="card-body">
+            <blockquote class="card-blockquote">
+                <img src="{{car.image}}" width="500"/>
+            </blockquote>
         </div>
-        <div class="col-md-5">
-            <p>Make: {{car.make}}</p>
-            <p>Model: {{car.model}}</p>
-            <p>Engine: {{car.engine}}</p>
-            <p>HP: {{car.hp}}</p>
-            <p>Doors: {{car.doors}}</p>
-            <p>Gearbox: {{car.gearbox}}</p>
-            <p>Year: {{car.year}}</p>
-            <p>Description: {{car.description}}</p>
-            <p>Price: {{car.price}}</p> 
+        <div class="card-body">
+            <p class="font-weight-light text-left"> Brand:  {{car.make}} </p>
+            <p class="font-weight-light text-left"> Model: {{car.model}} </p>
+            <p class="font-weight-light text-left"> Engine: {{car.engine}} </p>
+            <p class="font-weight-light text-left"> HP: {{car.hp}} </p>
+            <p class="font-weight-light text-left"> Gearbox: {{car.gearbox}} </p>
+            <p class="font-weight-light text-left"> Year: {{car.year}} </p>
+            <p class="font-weight-light text-left"> Doors: {{car.doors}} </p>
+            <p class="font-weight-light text-left"> Description: {{car.description}} </p>
+            <p class="font-weight-light text-left"> Price: {{car.price}} </p>
         </div>
     </div>
-
 </div>

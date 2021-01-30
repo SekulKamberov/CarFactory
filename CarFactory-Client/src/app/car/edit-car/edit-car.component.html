@@ -1,160 +1,155 @@
 <div class="container">
     <div class="row space-top">
         <div class="col-md-12">
-        <h1>Edit car</h1> 
+            <h1>Edit car</h1> 
         </div>
     </div>
 
     <form  #carForm="ngForm" (ngSubmit)="edit(carForm)">
-        <div class="row space-top">
-
-            <div class="col-md-4">
-
-                <div class="form-group has-success">
-                    <label class="form-control-label" for="new-make">Make</label>
-                    
-                    <input class="form-control" id="new-make" type="text" name="make" 
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-make">Brand</label>
+                <input class="form-control" id="new-make" type="text" name="make"    
                     [(ngModel)]="bindingModel.make" 
-                    #make="ngModel" required [customMin]="3" [customMax]="10">
+                    #make="ngModel" required minlength="3" maxlength="10">
     
                     <div [hidden]="make.valid || make.pristine" class="form-control-feedback">
-                        Make must be minimum 3 and max 10 symbols long
+                        Brand must be at least 3 symbols long
                     </div> 
-                </div>
+            </div>
 
-                <div class="form-group has-success">
-                    <label class="form-control-label" for="new-model">Model</label>
-                    
-                    <input class="form-control" id="new-model" type="text" name="model"    
-                        [(ngModel)]="bindingModel.model" 
-                        #model="ngModel" 
-                        required 
-                        minlength="3">
-    
-                    <div [hidden]="model.valid || model.pristine" class="form-control-feedback">
-                        Model must be at least 3 symbols long
-                    </div> 
-                </div>
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-model">Model</label>    
+                <input class="form-control" id="new-model" type="text" name="model"    
+                    [(ngModel)]="bindingModel.model" 
+                    #model="ngModel" 
+                    required 
+                    minlength="1" maxlength="10">
 
-                <div class="form-group">
-                    <label class="form-control-label" for="new-engine">Engine</label>
-                    
-                    <input class="form-control" id="new-engine" type="text" name="engine"    
-                        [(ngModel)]="bindingModel.engine" 
-                        #engine="ngModel" 
-                        required 
-                        minlength="3">
-    
-                    <div [hidden]="engine.valid || engine.pristine" class="form-control-feedback">
-                        Engine must be at least 3 symbols long
-                    </div> 
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="new-hp">HP</label>
-                    
-                    <input class="form-control" id="new-hp" type="number" name="hp"    
-                        [(ngModel)]="bindingModel.hp" 
-                        #hp="ngModel" 
-                        required
-                        [customMin]="100"
-                        [customMax]="1500">
-    
-                    <div [hidden]="hp.valid || hp.pristine" class="form-control-feedback">
-                        HP must be between 100 and 1500 HP
-                    </div> 
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" for="new-doors">Doors</label>
-                    
-                    <input class="form-control" id="new-doors" type="number" name="doors"    
-                        [(ngModel)]="bindingModel.doors" 
-                        #doors="ngModel" 
-                        required
-                        [customMin]="3"
-                        [customMax]="5">
-    
-                    <div [hidden]="doors.valid || doors.pristine" class="form-control-feedback">
-                        Doors must be 3, 4 or 5
-                    </div> 
+                <div [hidden]="model.valid || model.pristine" class="form-control-feedback">
+                    Model must be at least 1 symbols long
                 </div> 
+            </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="new-gearbox">Gearbox</label>
-                    
-                    <input class="form-control" id="new-gearbox" type="text" name="gearbox"    
-                        [(ngModel)]="bindingModel.gearbox" 
-                        #gearbox="ngModel" 
-                        required 
-                        minlength="3">
-    
-                    <div [hidden]="gearbox.valid || gearbox.pristine" class="form-control-feedback">
-                        Gearbox must be at least 3 symbols long
-                    </div> 
-                </div>
+        </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="new-year">Year</label>
-                    
-                    <input class="form-control" id="new-year" type="number" name="year"    
-                        [(ngModel)]="bindingModel.year" 
-                        #year="ngModel" 
-                        required
-                        [customMin]="3"
-                        [customMax]="5">
-    
-                    <div [hidden]="year.valid || year.pristine" class="form-control-feedback">
-                        Year must be between 2021 and 2070
-                    </div> 
-                </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-engine">Engine</label> 
+                <input class="form-control" id="new-engine" type="text" name="engine"    
+                    [(ngModel)]="bindingModel.engine" 
+                    #engine="ngModel" 
+                    required 
+                    minlength="2" maxlength="10">
 
-                <div class="form-group">
-                    <label class="form-control-label" for="new-description">Description</label>
-                    
-                    <input class="form-control" id="new-description" type="text" name="description"    
-                        [(ngModel)]="bindingModel.description" 
-                        #description="ngModel" 
-                        required 
-                        minlength="15">
-    
-                    <div [hidden]="description.valid || description.pristine" class="form-control-feedback">
-                        Description must be more than 10 symbols
-                    </div> 
-                </div>
+                <div [hidden]="engine.valid || engine.pristine" class="form-control-feedback">
+                    Engine must be between 2 and 10 symbols
+                </div> 
+            </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="new-year">Price</label>
-                    
-                    <input class="form-control" id="new-price" type="number" name="price"    
-                        [(ngModel)]="bindingModel.price" 
-                        #price="ngModel" 
-                        required
-                        [customMin]="0"> 
-    
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-hp">HP</label>
+                <input class="form-control" id="new-hp" type="number" name="hp"    
+                    [(ngModel)]="bindingModel.hp" 
+                    #hp="ngModel" 
+                    required
+                    [customMin]="100"
+                    [customMax]="1500">
+
+                <div [hidden]="hp.valid || hp.pristine" class="form-control-feedback">
+                    HP must be between 100 and 1500 HP
+                </div> 
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-doors">Doors</label>
+                <input class="form-control" id="new-doors" type="number" name="doors"    
+                    [(ngModel)]="bindingModel.doors" 
+                    #doors="ngModel" 
+                    required
+                    [customMin]="3"
+                    [customMax]="5">
+
+                <div [hidden]="doors.valid || doors.pristine" class="form-control-feedback">
+                    Doors must be 3, 4 or 5
+                </div> 
+            </div> 
+
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-gearbox">Gearbox</label>  
+                <input class="form-control" id="new-gearbox" type="text" name="gearbox"    
+                    [(ngModel)]="bindingModel.gearbox" 
+                    #gearbox="ngModel" 
+                    required 
+                    minlength="3" maxlength="12">
+
+                <div [hidden]="gearbox.valid || gearbox.pristine" class="form-control-feedback">
+                    Gearbox must be between 3 and 12 symbols 
+                </div> 
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-year">Year</label>              
+                <input class="form-control" id="new-year" type="number" name="year"    
+                    [(ngModel)]="bindingModel.year" 
+                    #year="ngModel" 
+                    required
+                    [customMin]="2020"
+                    [customMax]="2070">
+
+                <div [hidden]="year.valid || year.pristine" class="form-control-feedback">
+                    Year must be between 2021 and 2070
+                </div> 
+            </div>
+
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-description">Description</label>
+                <input class="form-control" id="new-description" type="text" name="description"    
+                    [(ngModel)]="bindingModel.description" 
+                    #description="ngModel" 
+                    required 
+                    minlength="10" maxlength="30">
+
+                <div [hidden]="description.valid || description.pristine" class="form-control-feedback">
+                    Description must be between 10 and 30 symbols long
+                </div> 
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-year">Price</label>                   
+                <input class="form-control" id="new-price" type="number" name="price"    
+                    [(ngModel)]="bindingModel.price" 
+                    #price="ngModel" 
+                    required
+                    [customMin]="0"
+                    [customMax]="10000000"> 
+
                     <div [hidden]="price.valid || price.pristine" class="form-control-feedback">
-                        Price must be not negative number
+                        Price must be not negative number and cheaper than 10 000 000
                     </div> 
-                </div>
+            </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="new-image">Image url</label>
-                    
-                    <input class="form-control" id="new-image" type="text" name="image"    
-                        [(ngModel)]="bindingModel.image" 
-                        #image="ngModel" 
-                        required 
-                        minlength="15">
+            <div class="col-sm-6">
+                <label class="form-control-label" for="new-image">Image url</label>
+                <input class="form-control" id="new-image" type="text" name="image"    
+                    [(ngModel)]="bindingModel.image" 
+                    #image="ngModel" 
+                    required 
+                    minlength="15" maxlength="500">
     
                     <div [hidden]="image.valid || image.pristine" class="form-control-feedback">
                         Image url is required
                     </div> 
-                </div>
-                <input type="submit" class="btn btn-primary" value="Edit" [disabled]="!carForm.valid" />
-
             </div>
-
         </div>
+		
+		<input type="submit" class="btn btn-primary" value="Edit" [disabled]="!carForm.valid" />
+
     </form>
   </div>
   

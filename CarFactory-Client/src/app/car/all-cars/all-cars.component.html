@@ -9,8 +9,8 @@
     <div *ngIf='cars$ | async as cars'>
         <div *ngIf="cars.length > 0; else notFound" class="row space-top">
             <div *ngFor="let car of cars" class="col-md-4">
-                <div >
-                    <img src="{{car.image}}" width="300" />
+                <div class="mb-4">
+                    <img src="{{car.image}}" class="img-fluid img-thumbnail" />
                     <p>{{car.description}}</p>
                     <div class="pull-right">
                         <a routerLink="/car/details/{{car.id}}" class="btn btn-outline-primary">Details</a>
