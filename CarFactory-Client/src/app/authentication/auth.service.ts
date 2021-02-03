@@ -18,7 +18,7 @@ export class AuthService {
         private toastr: ToastrService,
         private router: Router) {
             if (localStorage.getItem('authtoken')) {
-                //const authtoken = localStorage.getItem('authtoken')
+                 
                 const authtoken = String(localStorage.getItem('authtoken'));
                 try {
                     const decoded = jwt_decode(authtoken)
